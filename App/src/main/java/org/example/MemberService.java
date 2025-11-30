@@ -204,7 +204,7 @@ public class MemberService {
                 "FROM MemberLatestMetric " +
                 "WHERE member_id = ?";
 
-        String sessionSql = "SELECT session_id, start_time, end_time " +
+        String sessionSql = "SELECT session_id, start_time, end_time, notes " +
                         "FROM PTSession " +
                         "WHERE member_id = ? AND start_time > NOW() " +
                         "ORDER BY start_time ASC";
@@ -258,6 +258,7 @@ public class MemberService {
                     System.out.println("Session ID: " + rs.getInt("session_id"));
                     System.out.println("Start: " + start);
                     System.out.println("End: " + end);
+                    System.out.println("Notes: " + rs.getString("notes"));
                     System.out.println("-----------------------------------");
                 }
 
